@@ -70,12 +70,7 @@ const workflowSteps = [
   },
 ];
 
-const audienceTabs = [
-  'Fleet Operators',
-  'Government & Emergency Services',
-  'Insurers',
-  'Individual Drivers',
-];
+const featureTabs = ['Fleet', 'Applications', 'Analytics'];
 
 const engineeringServices = [
   {
@@ -312,11 +307,17 @@ const Home = () => {
             </div>
 
             <div className="home-evade-suite__heading home-evade-suite__heading--serve" id="services">
-              <h2>Who EVADE Serves</h2>
+              <span className="home-evade-suite__eyebrow">Features</span>
+              <h2>
+                Core features that secure, simplify,
+                <br />
+                and scale your stack
+              </h2>
+              <p>Real-world solutions delivering measurable business impact</p>
             </div>
 
             <div className="home-pill-row home-pill-row--evade" role="tablist" aria-label="Audience sectors">
-              {audienceTabs.map((tab, index) => (
+              {featureTabs.map((tab, index) => (
                 <span
                   key={tab}
                   className={`home-pill ${index === 0 ? 'home-pill--active' : ''}`}
@@ -331,10 +332,12 @@ const Home = () => {
             <div className="home-evade-suite__serve-panel">
               <div className="home-evade-suite__serve-copy">
                 <img src={trustedIcon} alt="" aria-hidden="true" />
-                <h3>Fleet Operators</h3>
+                <h3>Fleet Management Systems</h3>
                 <p>
-                  Your drivers are protected before they can reach for their phone. Real-time fleet
-                  visibility and verified incident records reduce liability and insurance disputes.
+                  Our fleet management solutions give you real-time visibility into every vehicle,
+                  trip, and driver. From route optimization and fuel tracking to maintenance alerts
+                  and performance analytics, Zubitech empowers businesses to reduce costs, increase
+                  efficiency, and make data-driven decisions with ease.
                 </p>
 
                 <div className="home-evade-suite__cta-row">
@@ -343,25 +346,7 @@ const Home = () => {
                     size="lg"
                     onClick={() => scrollToSection('#contact')}
                   >
-                    Watch EVADE in Action
-                  </Button>
-                  <Button
-                    className="home-button home-button--secondary"
-                    variant="ghost"
-                    size="lg"
-                    onClick={() => scrollToSection('#contact')}
-                  >
-                    Request a Live Demo
-                  </Button>
-                </div>
-
-                <div className="home-evade-suite__cta-row home-evade-suite__cta-row--stacked">
-                  <Button
-                    className="home-button home-button--primary"
-                    size="lg"
-                    onClick={() => scrollToSection('#contact')}
-                  >
-                    Download the EVADE Technical Brief
+                    Try It Now
                   </Button>
                 </div>
               </div>
