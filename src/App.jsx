@@ -1,13 +1,8 @@
-import React from 'react'
-import './App.css'
+import './App.css';
+import Display from './Display';
 
 function App() {
-
-  return (
-    <>
-      
-    </>
-  )
+  return <Display />;
 }
 
-export default App
+export default App;
