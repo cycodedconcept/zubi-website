@@ -136,6 +136,28 @@ input {
   background: linear-gradient(180deg, #ffffff 0%, #e6edf8 100%);
 }
 
+.app-shell--services .site-navbar__menu-toggle,
+.app-shell--about .site-navbar__menu-toggle,
+.app-shell--contact .site-navbar__menu-toggle {
+  border-color: rgba(155, 174, 209, 0.42);
+  background: rgba(255, 255, 255, 0.8);
+  color: #111827;
+}
+
+.app-shell--services .site-navbar__menu-toggle:hover,
+.app-shell--about .site-navbar__menu-toggle:hover,
+.app-shell--contact .site-navbar__menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.app-shell--services .site-navbar__panel,
+.app-shell--about .site-navbar__panel,
+.app-shell--contact .site-navbar__panel {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(180, 191, 212, 0.8);
+  box-shadow: 0 20px 45px rgba(148, 163, 184, 0.18);
+}
+
 .auth-page,
 .dashboard-page,
 .info-page {
@@ -914,9 +936,15 @@ input {
   margin-top: 2rem;
 }
 
+@media (max-width: 991px) {
+  .app-shell--home .home-hero-shell {
+    padding-top: 5.25rem;
+  }
+}
+
 @media (max-width: 767px) {
   .app-shell--home .home-hero-shell {
-    padding-top: 8.25rem;
+    padding-top: 4.75rem;
   }
 
   .auth-page,
