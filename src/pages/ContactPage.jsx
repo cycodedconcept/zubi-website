@@ -1,3 +1,5 @@
+import { Reveal } from '../component/ui';
+
 const contactLinks = [
   {
     label: 'Email',
@@ -25,7 +27,7 @@ const ContactPage = () => {
     <section className="contact-page">
       <div className="container">
         <div className="contact-page__layout">
-          <div className="contact-page__copy">
+          <Reveal as="div" className="contact-page__copy">
             <span className="contact-page__badge">Contact Us</span>
             <h1>
               Let&apos;s Build
@@ -70,9 +72,9 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="contact-page__form-shell">
+          <Reveal as="div" className="contact-page__form-shell" variant="scale" delay={120}>
             <form className="contact-page__form" onSubmit={handleSubmit}>
               <div className="contact-page__form-grid">
                 <label className="contact-page__field">
@@ -131,7 +133,7 @@ const ContactPage = () => {
                 Submit Inquiry
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

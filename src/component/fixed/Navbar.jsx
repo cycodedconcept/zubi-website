@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../ui';
+import logo from '../../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isHomePage = location.pathname === '/';
 
   const navLinks = [
     { label: 'Home', to: '/' },
@@ -38,10 +41,6 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname, location.hash]);
-
   const handleConsultationClick = () => {
     setIsMenuOpen(false);
 
@@ -59,15 +58,33 @@ const Navbar = () => {
     navigate('/company/contact');
   };
 
+  useEffect(() => {
+    if (!isHomePage) {
+      setIsScrolled(false);
+      return undefined;
+    }
+
+    const syncScrollState = () => {
+      setIsScrolled(window.scrollY > 16);
+    };
+
+    syncScrollState();
+    window.addEventListener('scroll', syncScrollState, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', syncScrollState);
+    };
+  }, [isHomePage]);
+
   return (
-    <header className={`site-navbar ${isMenuOpen ? 'site-navbar--menu-open' : ''}`}>
+    <header
+      className={`site-navbar ${isMenuOpen ? 'site-navbar--menu-open' : ''} ${
+        isHomePage && (isScrolled || isMenuOpen) ? 'site-navbar--scrolled' : ''
+      }`}
+    >
       <div className="site-navbar__brand">
         <Link to="/" className="site-navbar__logo" aria-label="Zubi Technologies home">
-          <span className="site-navbar__logo-main">
-            <span className="site-navbar__logo-z">zu</span>
-            <span className="site-navbar__logo-bi">bi</span>
-          </span>
-          <span className="site-navbar__logo-subtitle">Technology</span>
+          <img src={logo} alt="Zubi Technologies" className="site-navbar__logo-image" />
         </Link>
       </div>
 

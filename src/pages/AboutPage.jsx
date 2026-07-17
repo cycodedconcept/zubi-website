@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Reveal } from '../component/ui';
 import terGraphic from '../assets/ter.png';
 
 const beliefs = [
@@ -34,7 +35,7 @@ const AboutPage = () => {
   return (
     <section className="about-page">
       <div className="container">
-        <div className="about-page__hero">
+        <Reveal as="div" className="about-page__hero">
           <span className="about-page__badge">About Zubi Technologies</span>
           <h1>Our Story</h1>
 
@@ -62,36 +63,41 @@ const AboutPage = () => {
               We believe in “not yet solved.”
             </p>
           </div>
-        </div>
+        </Reveal>
 
         <div className="about-page__body">
-          <div className="about-page__belief">
+          <Reveal as="div" className="about-page__belief" delay={60}>
             <h2>What We Believe</h2>
             {beliefs.map((item) => (
               <p key={item}>{item}</p>
             ))}
-          </div>
+          </Reveal>
 
-          <div className="about-page__visual-card">
+          <Reveal as="div" className="about-page__visual-card" variant="scale" delay={120}>
             <img src={terGraphic} alt="Zubi Technologies systems illustration" />
-          </div>
+          </Reveal>
 
-          <div className="about-page__values">
+          <Reveal as="div" className="about-page__values" delay={140}>
             <h2>What Sets Us Apart</h2>
 
             <div className="about-page__value-list">
               {differentiators.map((item, index) => (
-                <article key={item.title} className="about-page__value-item">
+                <Reveal
+                  key={item.title}
+                  as="article"
+                  className="about-page__value-item"
+                  delay={180 + index * 80}
+                >
                   <h3>
                     {index + 1}. {item.title}
                   </h3>
                   <p>{item.copy}</p>
-                </article>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="about-page__closing">
+          <Reveal as="div" className="about-page__closing" delay={220}>
             <h2>Based in Lagos. Built for the World.</h2>
             <p>
               Our headquarters are in Lagos, Nigeria one of the most complex, dynamic, and demanding
@@ -107,7 +113,7 @@ const AboutPage = () => {
                 Explore EVADE
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

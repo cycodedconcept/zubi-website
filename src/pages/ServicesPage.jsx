@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Reveal } from '../component/ui';
 import droneGraphic from '../assets/drone.png';
 
 const capabilities = [
@@ -79,7 +80,7 @@ const ServicesPage = () => {
   return (
     <section className="services-page">
       <div className="container">
-        <div className="services-page__hero">
+        <Reveal as="div" className="services-page__hero">
           <span className="services-page__badge">Custom Engineering Services</span>
           <h1>
             We Built a Product That Saves Lives. Now Imagine What We Can Build for You.
@@ -105,43 +106,53 @@ const ServicesPage = () => {
               Tell Us About Your Project
             </Link>
           </div>
-        </div>
+        </Reveal>
 
         <section className="services-page__capabilities">
-          <div className="services-page__section-card">
+          <Reveal as="div" className="services-page__section-card" delay={80}>
             <h2>Our Core Engineering Capabilities</h2>
 
             <div className="services-page__capability-list">
-              {capabilities.map((item) => (
-                <article key={item.title} className="services-page__capability-item">
+              {capabilities.map((item, index) => (
+                <Reveal
+                  key={item.title}
+                  as="article"
+                  className="services-page__capability-item"
+                  delay={120 + index * 70}
+                >
                   <h3>{item.title}</h3>
                   <div className="services-page__capability-copy">
                     <p>{item.copy}</p>
                   </div>
-                </article>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="services-page__process">
-          <div className="services-page__process-header">
+          <Reveal as="div" className="services-page__process-header" delay={100}>
             <h2>Our Process</h2>
-          </div>
+          </Reveal>
 
           <div className="services-page__process-grid">
-            {processSteps.map((step) => (
-              <article key={step.title} className="services-page__process-card">
+            {processSteps.map((step, index) => (
+              <Reveal
+                key={step.title}
+                as="article"
+                className="services-page__process-card"
+                delay={140 + index * 90}
+              >
                 <div className="services-page__process-icon">{step.icon}</div>
                 <div>
                   <h3>{step.title}</h3>
                   <p>{step.copy}</p>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
 
-          <div className="services-page__process-actions">
+          <Reveal as="div" className="services-page__process-actions" delay={220}>
             <Link className="services-page__button services-page__button--light" to="/company/contact">
               Schedule a Technical Consultation
             </Link>
@@ -151,7 +162,7 @@ const ServicesPage = () => {
             >
               Download Our Capabilities Overview
             </Link>
-          </div>
+          </Reveal>
         </section>
       </div>
     </section>

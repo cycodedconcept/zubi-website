@@ -11,6 +11,11 @@
   gap: 24px;
   box-shadow: none;
   backdrop-filter: none;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
 }
 
 .site-navbar__brand,
@@ -28,9 +33,8 @@
 
 .site-navbar__logo {
   display: inline-flex;
-  flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  line-height: 0.95;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -39,27 +43,10 @@
   opacity: 0.95;
 }
 
-.site-navbar__logo-main {
-  font-size: 1.85rem;
-  font-weight: 800;
-  letter-spacing: -0.1em;
-}
-
-.site-navbar__logo-z {
-  color: #36d6ff;
-}
-
-.site-navbar__logo-bi {
-  color: #5b2cff;
-}
-
-.site-navbar__logo-subtitle {
-  margin-top: -2px;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: capitalize;
-  color: #94a4ff;
+.site-navbar__logo-image {
+  display: block;
+  width: auto;
+  height: 2rem;
 }
 
 .site-navbar__menu-toggle {
@@ -268,8 +255,8 @@
     border-radius: 20px;
   }
 
-  .site-navbar__logo-main {
-    font-size: 1.6rem;
+  .site-navbar__logo-image {
+    height: 1.75rem;
   }
 
   .site-navbar__link {
